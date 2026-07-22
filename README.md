@@ -4,9 +4,15 @@
 
 ### 面向变压器油温的短期多变量时间序列预测
 
-**Python 3.10 · PyTorch · ETTh1 · Ablation Study · Reproducible Research**
+[![Python 3.10](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.9-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Dataset](https://img.shields.io/badge/Dataset-ETTh1-6C5CE7)](https://github.com/zhouhaoyi/ETDataset)
+[![License: MIT](https://img.shields.io/badge/Code%20License-MIT-22A699)](LICENSE)
+[![Task](https://img.shields.io/badge/Task-Time%20Series%20Forecasting-0A66C2)](#项目简介)
 
 利用过去 **72 小时**的多变量观测，预测未来 **24 小时**的变压器油温 `OT`。
+
+[项目简介](#项目简介) · [模型方法](#方法概览) · [实验结果](#实验结果) · [快速开始](#快速开始) · [核心代码](#核心代码说明) · [Model Card](docs/MODEL_CARD.md)
 
 </div>
 
@@ -17,6 +23,17 @@
 DARNet-ETTh1 是一个面向短期多变量时间序列预测的本科毕业设计项目。项目以 ETTh1 数据集中的变压器油温 `OT` 为预测目标，在 DARNet 基础框架上研究局部 **Patch 表示**、**注意力机制**与 **Fourier 季节性特征**对预测性能的影响。
 
 仓库包含可复现训练代码、六组消融实验、预训练权重、实验结果、论文图表和交互式数据分析 Notebook。无需重新训练即可查看论文采用的实验数据，也可以直接加载权重进行评估。
+
+## 实验概览
+
+| 项目 | 配置 |
+|---|---|
+| 研究任务 | 多变量时间序列到多步连续值预测 |
+| 输入 / 输出 | 72 小时历史观测 → 未来 24 小时 `OT` |
+| 数据规模 | ETTh1，17,420 条小时级记录，7 个数值变量 |
+| 消融设计 | 6 种统一模式，分别评估 Patch、Attention 与季节特征 |
+| 最佳结果 | Patch：RMSE `13.0248`，相比 Baseline 下降 `5.49%` |
+| 可复现材料 | 训练源码、环境配置、预训练权重、原始 CSV、Notebook 与绘图脚本 |
 
 ## DARNet 的原始用途
 
@@ -83,8 +100,6 @@ flowchart LR
 | Full Model | 12.7341 | 13.6427 | 4.0149 | -0.0449 |
 
 在当前配置下，Patch 模式取得最佳 RMSE，相比 Baseline 下降约 **5.49%**。结果表明局部片段表示对该任务有效；其他模块的组合效果仍受到参数配置和训练策略影响，值得进一步研究。
-
-![DARNet 六种模式 RMSE 对比](figures/darnet_ablation_rmse_comparison.png)
 
 <details>
 <summary><strong>查看更多数据分析图</strong></summary>
@@ -176,6 +191,7 @@ DARNet-ETTh1/
 ├── THIRD_PARTY_NOTICES.md          # 数据集和论文的第三方声明
 ├── requirements.txt               # pip 依赖
 ├── environment.yml                # Conda 环境
+├── docs/                           # Model Card 等研究说明
 ├── code/
 │   ├── 0114-DARNet-V4-opt.py       # 正式训练源码
 │   ├── run_all_modes.py            # 六模式运行入口
