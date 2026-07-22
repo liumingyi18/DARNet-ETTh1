@@ -1,0 +1,2 @@
+input_size,seq_len,target_len,patch_size,use_attention,use_seasonality,seasonality_variant,batch_size,hidden_dim,n_layers,lr,drop_prob,weight_decay,grad_clip_norm,warmup_epochs,loss_name,optimizer_name,scheduler_name,scheduler_gamma,eval_interval,final_train_loss,final_valid_loss,MAPE,SMAPE,MAE,RMSE,RRSE,CORR
+7,72,24,2,False,False,basic,128,64,2,0.00025,0.05,0,1.0,5,huber,adam,step,0.98,15,0.015894470736384392,0.005848689780881007,213163.344055016,1.7984525237783449,11.550218967908537,13.024595731805809,3.833041689435642,0.015299717928492594

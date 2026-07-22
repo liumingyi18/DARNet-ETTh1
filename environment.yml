@@ -1,0 +1,14 @@
+name: darnet-etth1
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - numpy>=2.2,<2.3
+      - pandas>=2.3,<2.4
+      - matplotlib>=3.10,<3.11
+      - scikit-learn>=1.7,<1.8
+      - torch>=2.9,<2.10
+      - tqdm>=4.67,<4.68
+      - xgboost>=2.0,<2.1

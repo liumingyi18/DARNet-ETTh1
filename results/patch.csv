@@ -1,0 +1,2 @@
+input_size,seq_len,target_len,patch_size,use_attention,batch_size,hidden_dim,n_layers,lr,drop_prob,weight_decay,grad_clip_norm,warmup_epochs,final_train_loss,final_valid_loss,MAPE,SMAPE,MAE,RMSE,RRSE,CORR
+7,72,24,4,False,256,64,2,0.001,0,0,1.0,5,0.0034264973364770412,0.001171909803007212,213175.69704022558,1.7984706331660363,11.55044752072318,13.02475462046513,3.833088449186785,0.015300492081728513
